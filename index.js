@@ -1,11 +1,12 @@
 import photoloader from "./lib/photoloader.js";
 
-function getPicture (id){
-    let image = loadPicture(id);
+function getPicture (id) {
+    let image = photoloader.loadPicture(id);
     console.log(image.titre);
     console.log(image.type);
     console.log(image.url);
-
+    return image;
 }
 
-//const getPicture = getPicture(105);
+const pic = getPicture(105);
+console.log(pic);
