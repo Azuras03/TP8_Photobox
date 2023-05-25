@@ -1,12 +1,10 @@
 import photoloader from "./lib/photoloader.js";
 
-function getPicture (id) {
-    let image = photoloader.loadPicture(id);
-    console.log(image.titre);
-    console.log(image.type);
-    console.log(image.url);
-    return image;
+let getPicture = async (id) => {
+    let response = await photoloader.loadPicture(id);
+    console.log(response.photo.titre);
+    console.log(response.photo.url);
+    console.log(response.photo.descr);
 }
 
 const pic = getPicture(105);
-console.log(pic);
