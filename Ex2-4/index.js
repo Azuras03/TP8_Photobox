@@ -24,4 +24,8 @@ let getCommentaires = async (imgData) => {
     return response.comments;
 }
 
-getPicture(105);
+export default {
+    getPicture,
+    getCategorie,
+    getCommentaires
+}
