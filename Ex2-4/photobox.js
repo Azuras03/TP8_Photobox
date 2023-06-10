@@ -19,24 +19,14 @@ let load_gallery = async function (pageL) {
 }
 
 let switchToGallery = function () {
-    let gallery = document.getElementById("la_photo");
+    let gallery = document.getElementById("photoScreen");
     if (gallery.classList.contains("hided")) {
         gallery.classList.remove("hided");
-        setTimeout(function () {
-            gallery.classList.remove("blurInactive");
-        }, 20);
         gallery.classList.add("showed");
         return;
     }
-    gallery.classList.add("blurInactive");
-    gallery.addEventListener('transitionend', function(e) {
-        gallery.classList.remove("showed");
-        gallery.classList.add("hided");
-    }, {
-        capture: false,
-        once: true,
-        passive: false
-    });
+    gallery.classList.remove("showed");
+    gallery.classList.add("hided");
 }
 
 document.getElementById("load_gallery").addEventListener("click", async function () {
@@ -58,7 +48,13 @@ document.getElementById("last_page").addEventListener("click", async function ()
 });
 
 document.getElementById("gallery_container").addEventListener("click", async function (e) {
+    if(e.target.tagName !== "IMG") return;
     let photoId = e.target.dataset.photoid;
     switchToGallery();
     await index.getPicture(photoId);
+});
+
+document.getElementById("close_gallery").addEventListener("click", function () {
+    console.log("clicked")
+    switchToGallery();
 });
