@@ -15,6 +15,41 @@ body{
     background-size: 400% 400%;
 }
 
+@keyframes introHeader {
+    0% {
+        height: 100%;
+        opacity: 1;
+    }
+    25% {
+        height: 100%;
+        opacity: 1;
+    }
+    75% {
+        height: 100px;
+        opacity: 1;
+    }
+    100% {
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+#introBlock{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background: #3b7b81;
+    animation: introHeader 1.5s cubic-bezier(1,0,0,1) forwards;
+}
+
 @keyframes slideUp {
     0% {
         transform: translateY(100%);
@@ -93,6 +128,7 @@ header{
 }
 
 button{
+    font-family: Arial, sans-serif;
     border: 3px solid #1d5162;
     border-radius: 10px;
     cursor: pointer;
@@ -102,6 +138,10 @@ button{
     transition: 0.5s cubic-bezier(0,0,0,1);
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    text-align: center;
+    padding: 10px;
+    line-height: 1em;
+    outline: none;
 }
 
 button:hover{
