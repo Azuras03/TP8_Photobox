@@ -4,12 +4,12 @@ import index from "./index.js";
 
 let pageLink = "/www/canals5/phox/api/photos/";
 
-let res = await gallery.load(pageLink);
+let res = gallery.load(pageLink);
 
-let linkNextPage = res.links.next.href;
-let linkPreviousPage = res.links.prev.href;
-let linkFirstPage = res.links.first.href;
-let linkLastPage = res.links.last.href;
+let linkNextPage = "";
+let linkPreviousPage = "";
+let linkFirstPage = "";
+let linkLastPage = "";
 
 let load_gallery_button = document.getElementById("load_gallery");
 let next_page_button = document.getElementById("next_page");
@@ -25,6 +25,8 @@ let load_gallery = async function (pageL) {
     pageLink = pageL;
     linkNextPage = res.next.href;
     linkPreviousPage = res.prev.href;
+    linkFirstPage = res.first.href;
+    linkLastPage = res.last.href;
 }
 
 let switchToGallery = function () {
@@ -41,7 +43,7 @@ let switchToGallery = function () {
 function activerAnimation(name, entity) {
     entity.classList.toggle(name);
     setTimeout(function() {
-        countEl.classList.toggle(name);
+        entity.classList.toggle(name);
     }, 500);
 }
 
