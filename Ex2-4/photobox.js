@@ -11,6 +11,15 @@ let linkPreviousPage = res.links.prev.href;
 let linkFirstPage = res.links.first.href;
 let linkLastPage = res.links.last.href;
 
+let load_gallery_button = document.getElementById("load_gallery");
+let next_page_button = document.getElementById("next_page");
+let previous_page_button = document.getElementById("previous_page");
+let first_page_button = document.getElementById("first_page");
+let last_page_button = document.getElementById("last_page");
+
+let gallery_container = document.getElementById("gallery_container")
+let close_gallery = document.getElementById("close_gallery");
+
 let load_gallery = async function (pageL) {
     let res = await gallery_ui.display_gallery(await gallery.load(pageL));
     pageLink = pageL;
@@ -29,32 +38,40 @@ let switchToGallery = function () {
     gallery.classList.add("hided");
 }
 
-document.getElementById("load_gallery").addEventListener("click", async function () {
+function activerAnimation(name, entity) {
+    entity.classList.toggle(name);
+    setTimeout(function() {
+        countEl.classList.toggle(name);
+    }, 500);
+}
+
+load_gallery_button.addEventListener("click", async function () {
     await load_gallery(pageLink);
+    activerAnimation("slideUp", gallery_container);
 });
-document.getElementById("next_page").addEventListener("click", async function () {
+next_page_button.addEventListener("click", async function () {
     await load_gallery(linkNextPage);
 });
-document.getElementById("previous_page").addEventListener("click", async function () {
+previous_page_button.addEventListener("click", async function () {
     await load_gallery(linkPreviousPage);
 });
 
-document.getElementById("first_page").addEventListener("click", async function () {
+first_page_button.addEventListener("click", async function () {
     await load_gallery(linkFirstPage);
 });
 
-document.getElementById("last_page").addEventListener("click", async function () {
+last_page_button.addEventListener("click", async function () {
     await load_gallery(linkLastPage);
 });
 
-document.getElementById("gallery_container").addEventListener("click", async function (e) {
+gallery_container.addEventListener("click", async function (e) {
     if(e.target.tagName !== "IMG") return;
     let photoId = e.target.dataset.photoid;
     switchToGallery();
     await index.getPicture(photoId);
 });
 
-document.getElementById("close_gallery").addEventListener("click", function () {
+close_gallery.addEventListener("click", function () {
     console.log("clicked")
     switchToGallery();
 });

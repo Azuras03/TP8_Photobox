@@ -3,8 +3,8 @@ import {link, linkPhotos} from "./endpoints.js";
 let displayPicture = function (img) {
     let photo = document.getElementById("la_photo")
     let realUrl = link + img.photo.url.href;
-    photo.innerHTML ="<img src=\"" + realUrl + "\" alt=\"\">\n" +
-        "  <h2>titre : " + img.photo.titre + "</h2>\n" +
+    photo.innerHTML ="<h2>titre : " + img.photo.titre + "</h2>\n" +
+        "  <img src=\"" + realUrl + "\" alt=\"\">\n" +
         "  <p>description : " + img.photo.descr + "</p>\n" +
         "  <p>type: " + img.photo.width + " x " + img.photo.height + "</p>\n" +
         "  <h4 id=\"la_categorie\">categorie : categorie de l'image</h4>\n" +
