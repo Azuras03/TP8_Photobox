@@ -53,17 +53,21 @@ load_gallery_button.addEventListener("click", async function () {
 });
 next_page_button.addEventListener("click", async function () {
     await load_gallery(linkNextPage);
+    activerAnimation("slideRight", gallery_container);
 });
 previous_page_button.addEventListener("click", async function () {
     await load_gallery(linkPreviousPage);
+    activerAnimation("slideLeft", gallery_container);
 });
 
 first_page_button.addEventListener("click", async function () {
     await load_gallery(linkFirstPage);
+    activerAnimation("slideFirst", gallery_container);
 });
 
 last_page_button.addEventListener("click", async function () {
     await load_gallery(linkLastPage);
+    activerAnimation("slideLast", gallery_container);
 });
 
 gallery_container.addEventListener("click", async function (e) {
