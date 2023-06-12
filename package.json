@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "esbuild": "^0.18.0"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/esbuild Ex2-4/photobox.js --bundle --outfile=Ex2-4/out.js | node_modules/.bin/esbuild Ex1/index.js --bundle --outfile=Ex1/out.js"
+  }
+}

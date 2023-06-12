@@ -12,15 +12,12 @@ let getPicture = async (id) => {
 }
 
 let getCategorie = async (imgData) => {
-    console.log(imgData.links.categorie.href)
     let response = await photoloader.loadResource(linkWithoutSlash + imgData.links.categorie.href);
-    console.log(response.categorie);
     return response.categorie;
 }
 
 let getCommentaires = async (imgData) => {
     let response = await photoloader.loadResource(linkWithoutSlash + imgData.links.comments.href);
-    console.log(response.comments);
     return response.comments;
 }
 

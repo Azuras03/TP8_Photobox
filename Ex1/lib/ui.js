@@ -19,7 +19,6 @@ let displayCategorie = function (categorie) {
 }
 
 let displayCommentaires = function (commentaires) {
-    console.log(commentaires[1]);
     let com = document.getElementById("les_commentaires");
     com.innerHTML = "";
     for (let i = 0; i < commentaires.length; i++) {

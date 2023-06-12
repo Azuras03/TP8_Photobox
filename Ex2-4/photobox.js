@@ -1,6 +1,6 @@
 import gallery_ui from "./lib/gallery_ui.js";
 import gallery from "./lib/gallery.js";
-import index from "./index.js";
+import {getPicture} from "./index.js";
 
 let pageLink = "/www/canals5/phox/api/photos/";
 
@@ -74,10 +74,9 @@ gallery_container.addEventListener("click", async function (e) {
     if(e.target.tagName !== "IMG") return;
     let photoId = e.target.dataset.photoid;
     switchToGallery();
-    await index.getPicture(photoId);
+    await getPicture(photoId);
 });
 
 close_gallery.addEventListener("click", function () {
-    console.log("clicked")
     switchToGallery();
 });
